@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Chat Web App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        /* CSS styles... */
+        body {
+            background-color: black;
+        }
+
+        #chat1 .form-outline .form-control ~ .form-notch div {
+            pointer-events: none;
+            border: 1px solid;
+            border-color: #eee;
+            box-sizing: border-box;
+            background: transparent;
+        }
+
+        #chat1 .form-outline .form-control ~ .form-notch .form-notch-leading {
+            left: 0;
+            top: 0;
+            height: 100%;
+            border-right: none;
+            border-radius: .65rem 0 0 .65rem;
+        }
+
+        #chat1 .form-outline .form-control ~ .form-notch .form-notch-middle {
+            flex: 0 0 auto;
+            max-width: calc(100% - 1rem);
+            height: 100%;
+            border-right: none;
+            border-left: none;
+        }
+
+        #chat1 .form-outline .form-control ~ .form-notch .form-notch-trailing {
+            flex-grow: 1;
+            height: 100%;
+            border-left: none;
+            border-radius: 0 .65rem .65rem 0;
+        }
+
+        #chat1 .form-outline .form-control:focus ~ .form-notch .form-notch-leading {
+            border-top: 0.125rem solid #39c0ed;
+            border-bottom: 0.125rem solid #39c0ed;
+            border-left: 0.125rem solid #39c0ed;
+        }
+
+        #chat1 .form-outline .form-control:focus ~ .form-notch .form-notch-leading,
+        #chat1 .form-outline .form-control.active ~ .form-notch .form-notch-leading {
+            border-right: none;
+            transition: all 0.2s linear;
+        }
+
+        #chat1 .form-outline .form-control:focus ~ .form-notch .form-notch-middle {
+            border-bottom: 0.125rem solid;
+            border-color: #39c0ed;
+        }
+
+        #chat1 .form-outline .form-control:focus ~ .form-notch .form-notch-middle,
+        #chat1 .form-outline .form-control.active ~ .form-notch .form-notch-middle {
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            transition: all 0.2s linear;
+        }
+
+        #chat1 .form-outline .form-control:focus ~ .form-notch .form-notch-trailing {
+            border-top: 0.125rem solid #39c0ed;
+            border-bottom: 0.125rem solid #39c0ed;
+            border-right: 0.125rem solid #39c0ed;
+        }
+
+        #chat1 .form-outline .form-control:focus ~ .form-notch .form-notch-trailing,
+        #chat1 .form-outline .form-control.active ~ .form-notch .form-notch-trailing {
+            border-left: none;
+            transition: all 0.2s linear;
+        }
+
+        #chat1 .form-outline .form-control:focus ~ .form-label {
+            color: #39c0ed;
+        }
+
+        #chat1 .form-outline .form-control ~ .form-label {
+            color: #bfbfbf;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container1 {
+            max-width: 190px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-input {
+            margin-bottom: 1rem;
+        }
+
+        .conversation-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .conversation-list li {
+                margin-bottom: 0.5rem;
+                border-bottom-left-radius: 42px;
+                border-bottom-right-radius: 42px;
+                border-top-right-radius: 43px;
+                padding: 1.5rem;
+                background-color: #ffffff;
+                border-radius: -14px;
+                BOX-SHADOW: aqua;
+                box-shadow: 6px 5px 28px 9px rgb(16 220 220 / 70%), 1px -3px 4px 0px rgb(251 251 255), 0px 4px 8px 0px rgb(0 75 210), 2px 4px 16px 0px rgb(255 0 0);
+            }
+
+
+        .container {
+            max-width:750px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 27px;
+            background: deepskyblue;
+            box-shadow: 6px 5px 28px 9px rgba(196,292,301,0.7), 1px -3px 4px 0px rgba(0,255,143,136.7), 0px 4px 8px 0px rgba(0,180,210,0.7), 2px 4px 16px 0px rgba(-264,314,140,140.7);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            position: relative;
+            
+        }
+
+        .fa-angle-left {
+            font-size: 20px;
+        }
+
+        .fa-times {
+            font-size: 20px;
+        }
+
+        .conversation-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .chat-input {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .form-control {
+            flex: 1;
+            border-radius: 30px;
+            padding: 10px;
+            background-color: #c0faffab;
+            border: none;
+        }
+
+        .btn-primary {
+            border-radius: 30px;
+            padding: 10px 20px;
+            margin-left: 10px;
+        }
+
+        .icon-link {
+            display: inline-flex;
+            align-items: center;
+            color: #007bff;
+            font-size: 16px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+            .icon-link svg {
+                margin-right: 5px;
+            }
+
+        /* Add this CSS to your existing stylesheet */
+        #conversation li.sent {
+            text-align: right;
+        }
+
+        #conversation li.received {
+            text-align: left;
+        }
+
+        #messageToGroupInp::placeholder {
+            color: white;
+        }
+        #groupNameInp::placeholder {
+            color: white;
+        }
+    </style>
+    <script src="../lib/signalr/dist/browser/signalr.js"></script>
+    <script src="../js/chat.js"></script>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var userName = prompt("Enter your name:");
+
+            var messageInput = document.getElementById("messageInp");
+            var groupInput = document.getElementById("groupNameInp");
+            var messageToGroupInput = document.getElementById("messageToGroupInp");
+
+            messageInput.focus();
+
+            // Define Proxy
+            var proxyConnection = new signalR.HubConnectionBuilder().withUrl("/chat").build();
+
+            proxyConnection.start().then(function () {
+                document.getElementById("sendMessageBtn").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    var message = messageInput.value;
+
+                    proxyConnection.invoke("Send", userName, message);
+                    displayOneOnOneMessage(userName, message, true); // Display sent one-on-one message in blue and align to the right
+                    messageInput.value = '';
+                });
+
+                document.getElementById("joinGroupBtn").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    proxyConnection.invoke("JoinGroup", groupInput.value, userName);
+                });
+
+                document.getElementById("sendMessageToGroupBtn").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    var groupMessage = messageToGroupInput.value;
+                    proxyConnection.invoke("SendMessageToGroup", groupInput.value, userName, groupMessage);
+                    displayGroupMessage(userName, groupMessage, true); // Display sent group message in blue and align to the right
+                    messageToGroupInput.value = ''; // Clear the input field after sending
+                });
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+            proxyConnection.on("ReceiveMessage", function (senderName, message) {
+                displayOneOnOneMessage(senderName, message, false); // Display received one-on-one message in red and align to the left
+            });
+
+            proxyConnection.on("ReceiveMessageFromGroup", function (message, sender) {
+                displayGroupMessage(sender, message, false); // Display received group message in red and align to the left
+            });
+
+            function displayOneOnOneMessage(userName, message, isSent) {
+                var liElement = document.createElement("li");
+
+                if (isSent) {
+                    liElement.style.color = "blue"; // Set the text color to blue for sent messages
+                    liElement.style.textAlign = "right"; // Align sent messages to the right
+                    liElement.innerHTML = `${message} <strong> :You</strong>`;
+                } else {
+                    liElement.style.color = "red"; // Set the text color to red for received messages
+                    liElement.style.textAlign = "left"; // Align received messages to the left
+                    liElement.innerHTML = `<strong>${userName}:</strong> ${message}`;
+                }
+
+                document.getElementById("conversation").appendChild(liElement);
+            }
+
+            function displayGroupMessage(userName, message, isSent) {
+                var liElement = document.createElement("li");
+
+                if (isSent) {
+                    liElement.style.color = "blue"; // Set the text color to blue for sent messages
+                    liElement.style.textAlign = "right"; // Align sent messages to the right
+                    liElement.innerHTML = `${message} <strong> :You</strong> `;
+                } else {
+                    liElement.style.color = "red"; // Set the text color to red for received messages
+                    liElement.style.textAlign = "left"; // Align received messages to the left
+                    liElement.innerHTML = `<strong>${userName}:</strong> ${message}`;
+                }
+
+                document.getElementById("groupConversationUL").appendChild(liElement);
+            }
+
+            proxyConnection.on("NewMemeberJoin", function (userName, groupName) {
+                var liElement = document.createElement("li");
+                liElement.innerHTML = `<i>${userName} has joined </i> ${groupName}`;
+                document.getElementById("groupConversationUL").appendChild(liElement);
+            });
+        });
+
+
+
+
+    </script>
+    <a class="container1 card-header d-flex justify-content-between align-items-center mb-5 p-3  text-white border-bottom-0 align-items-center   btn btn-outline-info" href="Index.html" target="_blank" style="border-top-left-radius: 15px; border-top-right-radius: 15px; text-align:center; ">
+        Live Chatting<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-wechat" viewBox="0 0 16 16">
+        <path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.324.324 0 0 0-.12.366l.218.81a.616.616 0 0 1 .029.117.166.166 0 0 1-.162.162.177.177 0 0 1-.092-.03l-1.057-.61a.519.519 0 0 0-.256-.074.509.509 0 0 0-.142.021 5.668 5.668 0 0 1-1.576.22ZM9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.615.615 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.627.627 0 0 0 .098.356Z" />
+        <path d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.499.499 0 0 0-.032.14.192.192 0 0 0 .193.193c.039 0 .077-.01.111-.029l1.268-.733a.622.622 0 0 1 .308-.088c.058 0 .116.009.171.025a6.83 6.83 0 0 0 1.625.26 4.45 4.45 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02.05 0 .1 0 .15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826Zm4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0Zm3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0Z" />
+        </svg>
+    </a>
+    <div class="container" style="display:none;">
+        <div class="card-header d-flex justify-content-between align-items-center mb-2 p-3 bg-info text-white border-bottom-0"
+             style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+            <i class="fas fa-angle-left"></i>
+            <p class="mb-0 fw-bold">Live chat</p>
+            <i class="fas fa-times"></i>
+        </div>
+
+        <ul id="conversation" class="conversation-list">
+        </ul>
+        <div class="chat-input input-group">
+
+            <input type="text" id="messageInp" class="form-control" placeholder="Type a message" />
+            <div class="input-group-append">
+                <button type="button" id="sendMessageBtn" class="btn btn-primary"><i class="bi bi-arrow-up-circle-fill"></i>Send</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="container">
+        <div class="card-header d-flex justify-content-between align-items-center mb-2 p-3  text-white border-bottom-0"
+             style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+            <i class="fas fa-angle-left"></i>
+            <p class="mb-0 fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chat-right-text-fill" viewBox="0 0 16 16">
+    <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM3.5 3h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z" />
+</svg> Special Group</p>
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="chat-input input-group">
+            <input type="text" id="groupNameInp" class="form-control" placeholder="Enter a group name" />
+            <div >
+                <button type="button" id="joinGroupBtn" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 17 18">
+    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+</svg> Join</button>
+            </div>
+        </div>
+        <br />
+
+        <ul id="groupConversationUL" class="conversation-list">
+        </ul>
+
+        <div class="chat-input input-group">
+            <input type="text" id="messageToGroupInp" class="form-control" placeholder="Type a message" />
+           
+            <div >
+             
+                <button type="button" id="sendMessageToGroupBtn" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
+</svg> </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
