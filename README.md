@@ -11,7 +11,7 @@
 
 **A modern, real-time chat application built with ASP.NET Core and SignalR**
 
-[Live Demo](#) · [Report Bug](https://github.com/AhmedMohamedGaber/ChatWebApp/issues) · [Request Feature](https://github.com/AhmedMohamedGaber/ChatWebApp/issues)
+[Live Demo](https://randomchat.runasp.net/) · [Report Bug](https://github.com/AhmedMohamedGaber/ChatWebApp/issues) · [Request Feature](https://github.com/AhmedMohamedGaber/ChatWebApp/issues)
 
 </div>
 
@@ -20,15 +20,18 @@
 ## 📸 Screenshots
 
 ### Landing Page
-![Landing Page](docs/images/landing-page.png)
+![Landing Page](<img width="1858" height="815" alt="image" src="https://github.com/user-attachments/assets/da7ed107-a22d-450b-9d5c-ba8e99af24de" />
+)
 *Modern landing page with smooth animations and professional design*
 
 ### Live Chat Interface
-![Live Chat](docs/images/live-chat.png)
+![Live Chat](<img width="730" height="594" alt="image" src="https://github.com/user-attachments/assets/064bb457-164e-4af3-8b39-3df154784a2a" />
+)
 *Real-time one-on-one chat with message timestamps and online users counter*
 
 ### Group Chat
-![Group Chat](docs/images/group-chat.png)
+![Group Chat](<img width="808" height="695" alt="image" src="https://github.com/user-attachments/assets/bad262da-6902-4488-8b22-942ef7f471b2" />
+)
 *Create and join group conversations with multiple users*
 
 ---
