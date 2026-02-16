@@ -20,18 +20,17 @@
 ## 📸 Screenshots
 
 ### Landing Page
-![Landing Page](<img width="1858" height="815" alt="image" src="https://github.com/user-attachments/assets/da7ed107-a22d-450b-9d5c-ba8e99af24de" />
-)
-*Modern landing page with smooth animations and professional design*
+<img width="100%" src="https://github.com/user-attachments/assets/da7ed107-a22d-450b-9d5c-ba8e99af24de" />
+<p><em>Modern landing page with smooth animations and professional design</em></p>
 
 ### Live Chat Interface
-![Live Chat](<img width="730" height="594" alt="image" src="https://github.com/user-attachments/assets/064bb457-164e-4af3-8b39-3df154784a2a" />
-)
-*Real-time one-on-one chat with message timestamps and online users counter*
+<img width="600" src="https://github.com/user-attachments/assets/064bb457-164e-4af3-8b39-3df154784a2a" />
+<p><em>Real-time one-on-one chat with message timestamps and online users counter</em></p>
 
 ### Group Chat
-![Group Chat](<img width="808" height="695" alt="image" src="https://github.com/user-attachments/assets/bad262da-6902-4488-8b22-942ef7f471b2" />
-)
+<img width="600" src="https://github.com/user-attachments/assets/bad262da-6902-4488-8b22-942ef7f471b2" />
+<p><em>Create and join group conversations with multiple users</em></p>
+
 *Create and join group conversations with multiple users*
 
 ---
