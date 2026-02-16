@@ -25,12 +25,12 @@
 
 ### Live Chat Interface
 <img width="600" src="https://github.com/user-attachments/assets/b9b05a77-2378-4cf2-8c0c-0e7d07eb0d80" />
-" />
+
 <p><em>Real-time one-on-one chat with message timestamps and online users counter</em></p>
 
 ### Group Chat
 <img width="600" src="https://github.com/user-attachments/assets/b00b9c3b-0cee-4751-8317-952816e78c0f" />
-" />
+
 <p><em>Create and join group conversations with multiple users</em></p>
 
 ---
