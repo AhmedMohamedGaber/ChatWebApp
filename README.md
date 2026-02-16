@@ -275,7 +275,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ahmed-mohamed-gaber-65bb39238/)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AhmedMohamedGaber)
 
-**Full-Stack Developer | ASP.NET Core Specialist | Real-Time Applications Expert**
+**Full-Stack Developer | ASP.NET Core Specialist**
 
 </div>
 
