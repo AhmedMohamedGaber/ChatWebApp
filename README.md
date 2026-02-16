@@ -31,8 +31,6 @@
 <img width="600" src="https://github.com/user-attachments/assets/bad262da-6902-4488-8b22-942ef7f471b2" />
 <p><em>Create and join group conversations with multiple users</em></p>
 
-*Create and join group conversations with multiple users*
-
 ---
 
 ## ✨ Features
