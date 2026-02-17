@@ -6,5 +6,6 @@
         public string MessageText { get; set; }
         public string UserName { get; set; }
         public DateTime MessageDate { get; set; }
+        public string? GroupName { get; set; }
     }
 }
